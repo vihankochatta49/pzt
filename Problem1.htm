@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zevi p1</title>
+    <style>
+      * {
+        padding: 0px;
+        margin: 0px;
+      }
+
+      body {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 60%;
+      }
+
+      .main-container {
+        display: grid;
+        grid-template-columns: 50% 50%;
+        border: 2px solid black;
+        padding: 40px;
+      }
+
+      .box {
+        border: 2px solid black;
+        padding: 10px;
+        margin: 15px;
+      }
+
+      .f-s {
+        width: 45px;
+      }
+
+      .f-s,
+      .c-c {
+        padding: 1px 3px;
+      }
+
+      button {
+        padding: 0px 5px;
+      }
+
+      @media screen and (max-width: 800px) {
+        body {
+          position: unset;
+          transform: translate(0, 0);
+          width: 100%;
+        }
+
+        .main-container {
+          grid-template-columns: auto;
+        }
+
+        button {
+          padding: 0px 2px;
+        }
+
+        .c-c {
+          margin-top: 5px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- container that contain all the boxes -->
+    <div class="main-container">
+      <!--buttons to change text style-->
+      <div class="box">
+        <div style="margin-bottom: 5px">
+          <!--bold button-->
+          <button onclick="boldFun(0)">Bold</button>
+          <!--italic button-->
+          <button onclick="italicFun(0)">Italic</button>
+          <!--underline button-->
+          <button onclick="underlineFun(0)">Underline</button>
+        </div>
+        <!-- font-size button-->
+        <input type="number" class="f-s" min="1" />
+        <button onclick="fontSizeFun(0)">Change-size</button>
+        <!--change color button-->
+        <input type="color" class="c-c" />
+        <button onclick="colorFun(0)">Change-color</button>
+      </div>
+      <!--text-->
+      <div class="text box">
+        <p>He's not the sharpest knife in the drawer</p>
+      </div>
+      <!--buttons to change text style-->
+      <div class="box">
+        <div style="margin-bottom: 5px">
+          <!--bold button-->
+          <button onclick="boldFun(1)">Bold</button>
+          <!--italic button-->
+          <button onclick="italicFun(1)">Italic</button>
+          <!--underline button-->
+          <button onclick="underlineFun(1)">Underline</button>
+        </div>
+        <!-- font-size button-->
+        <input type="number" class="f-s" min="1" />
+        <button onclick="fontSizeFun(1)">Change-size</button>
+        <!--change color button-->
+        <input type="color" class="c-c" />
+        <button onclick="colorFun(1)">Change-color</button>
+      </div>
+      <!--text-->
+      <div class="text box">
+        <p>The big building was blazing with lights</p>
+      </div>
+      <!--buttons to change text style-->
+      <div class="box">
+        <div style="margin-bottom: 5px">
+          <!--bold button-->
+          <button onclick="boldFun(2)">Bold</button>
+          <!--italic button-->
+          <button onclick="italicFun(2)">Italic</button>
+          <!--underline button-->
+          <button onclick="underlineFun(2)">Underline</button>
+        </div>
+        <!-- font-size button-->
+        <input type="number" class="f-s" min="1" />
+        <button onclick="fontSizeFun(2)">Change-size</button>
+        <!--change color button-->
+        <input type="color" class="c-c" />
+        <button onclick="colorFun(2)">Change-color</button>
+      </div>
+      <!--text-->
+      <div class="text box">
+        <p>Now you must answer some big questions</p>
+      </div>
+      <!--buttons to change text style-->
+      <div class="box">
+        <div style="margin-bottom: 5px">
+          <!--bold button-->
+          <button onclick="boldFun(3)">Bold</button>
+          <!--italic button-->
+          <button onclick="italicFun(3)">Italic</button>
+          <!--underline button-->
+          <button onclick="underlineFun(3)">Underline</button>
+        </div>
+        <!-- font-size button-->
+        <input type="number" class="f-s" min="1" />
+        <button onclick="fontSizeFun(3)">Change-size</button>
+        <!--change color button-->
+        <input type="color" class="c-c" />
+        <button onclick="colorFun(3)">Change-color</button>
+      </div>
+      <!--text-->
+      <div class="text box">
+        <p>Get your act together!</p>
+      </div>
+    </div>
+
+    <!-- script for changing text style -->
+    <script>
+      var text = document.querySelectorAll(".text");
+      // function that make text bold
+      function boldFun(e) {
+        text[e].style.fontWeight = "bold";
+      }
+      // function that make text italic
+      function italicFun(e) {
+        text[e].style.fontStyle = "italic";
+      }
+      // function to underline text
+      function underlineFun(e) {
+        text[e].style.textDecoration = "underline";
+      }
+      // function that change text font size
+      function fontSizeFun(e) {
+        const num = document.querySelectorAll(".f-s");
+        text[e].style.fontSize = `${num[e].value}px`;
+      }
+      // function that change text color
+      function colorFun(e) {
+        const col = document.querySelectorAll(".c-c");
+        text[e].style.color = `${col[e].value}`;
+      }
+    </script>
+  </body>
+</html>
