@@ -1,13 +1,6 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-      integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Zevi p1</title>
     <style>
@@ -16,6 +9,7 @@
         margin: 0px;
       }
 
+      /* center main-contianer */
       body {
         position: absolute;
         top: 50%;
@@ -24,6 +18,7 @@
         width: 60%;
       }
 
+      /* grid of two columns and four rows */
       .main-container {
         display: grid;
         grid-template-columns: 50% 50%;
@@ -31,18 +26,17 @@
         padding: 40px;
       }
 
+      /* for buttons and text boxes  */
       .box {
         border: 2px solid black;
         padding: 10px;
         margin: 15px;
       }
 
-      .f-s {
-        width: 45px;
-      }
-
+      /* for color and font size input tag */
       .f-s,
       .c-c {
+        width: 45px;
         padding: 1px 3px;
       }
 
@@ -50,6 +44,20 @@
         padding: 0px 5px;
       }
 
+      /* toggle classes for bold, italic and underline text */
+      .bold-text {
+        font-weight: bold;
+      }
+
+      .italic-text {
+        font-style: italic;
+      }
+
+      .underline-text {
+        text-decoration: underline;
+      }
+
+      /* for devices of width less than 800px */
       @media screen and (max-width: 800px) {
         body {
           position: unset;
@@ -74,7 +82,7 @@
   <body>
     <!-- container that contain all the boxes -->
     <div class="main-container">
-      <!--buttons to change text style-->
+      <!--row 1 column 1 buttons to change text style-->
       <div class="box">
         <div style="margin-bottom: 5px">
           <!--bold button-->
@@ -85,19 +93,21 @@
           <button onclick="underlineFun(0)">Underline</button>
         </div>
         <!-- font-size button-->
-        <input type="number" class="f-s" min="1" />
-        <button onclick="fontSizeFun(0)">Change-size</button>
+        <div>
+          <input type="number" class="f-s" min="1" />
+          <button onclick="fontSizeFun(0)">Change-size</button>
+        </div>
         <!--change color button-->
         <div style="margin-top: 5px">
           <input type="color" class="c-c" />
           <button onclick="colorFun(0)">Change-color</button>
         </div>
       </div>
-      <!--text-->
+      <!--row 1 column 2 text-->
       <div class="text box">
         <p>He's not the sharpest knife in the drawer</p>
       </div>
-      <!--buttons to change text style-->
+      <!--row 2 column 1 buttons to change text style-->
       <div class="box">
         <div style="margin-bottom: 5px">
           <!--bold button-->
@@ -108,19 +118,21 @@
           <button onclick="underlineFun(1)">Underline</button>
         </div>
         <!-- font-size button-->
-        <input type="number" class="f-s" min="1" />
-        <button onclick="fontSizeFun(1)">Change-size</button>
+        <div>
+          <input type="number" class="f-s" min="1" />
+          <button onclick="fontSizeFun(1)">Change-size</button>
+        </div>
         <!--change color button-->
         <div style="margin-top: 5px">
           <input type="color" class="c-c" />
           <button onclick="colorFun(1)">Change-color</button>
         </div>
       </div>
-      <!--text-->
+      <!--row 2 column 2 text-->
       <div class="text box">
         <p>The big building was blazing with lights</p>
       </div>
-      <!--buttons to change text style-->
+      <!--row 3 column 1 buttons to change text style-->
       <div class="box">
         <div style="margin-bottom: 5px">
           <!--bold button-->
@@ -131,19 +143,21 @@
           <button onclick="underlineFun(2)">Underline</button>
         </div>
         <!-- font-size button-->
-        <input type="number" class="f-s" min="1" />
-        <button onclick="fontSizeFun(2)">Change-size</button>
+        <div>
+          <input type="number" class="f-s" min="1" />
+          <button onclick="fontSizeFun(2)">Change-size</button>
+        </div>
         <!--change color button-->
         <div style="margin-top: 5px">
           <input type="color" class="c-c" />
           <button onclick="colorFun(2)">Change-color</button>
         </div>
       </div>
-      <!--text-->
+      <!--row 3 column 2 text-->
       <div class="text box">
         <p>Now you must answer some big questions</p>
       </div>
-      <!--buttons to change text style-->
+      <!--row 4 column 1 buttons to change text style-->
       <div class="box">
         <div style="margin-bottom: 5px">
           <!--bold button-->
@@ -154,15 +168,17 @@
           <button onclick="underlineFun(3)">Underline</button>
         </div>
         <!-- font-size button-->
-        <input type="number" class="f-s" min="1" />
-        <button onclick="fontSizeFun(3)">Change-size</button>
+        <div>
+          <input type="number" class="f-s" min="1" />
+          <button onclick="fontSizeFun(3)">Change-size</button>
+        </div>
         <!--change color button-->
         <div style="margin-top: 5px">
           <input type="color" class="c-c" />
           <button onclick="colorFun(3)">Change-color</button>
         </div>
       </div>
-      <!--text-->
+      <!--row 4 column 2 text-->
       <div class="text box">
         <p>Get your act together!</p>
       </div>
@@ -173,15 +189,15 @@
       var text = document.querySelectorAll(".text");
       // function that make text bold
       function boldFun(e) {
-        text[e].style.fontWeight = "bold";
+        text[e].classList.toggle("bold-text");
       }
       // function that make text italic
       function italicFun(e) {
-        text[e].style.fontStyle = "italic";
+        text[e].classList.toggle("italic-text");
       }
       // function to underline text
       function underlineFun(e) {
-        text[e].style.textDecoration = "underline";
+        text[e].classList.toggle("underline-text");
       }
       // function that change text font size
       function fontSizeFun(e) {
