@@ -9,13 +9,15 @@
         margin: 0px;
       }
 
-      /* center main-contianer */
       body {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 60%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+      }
+
+      section {
+        margin: auto;
       }
 
       /* grid of two columns and four rows */
@@ -59,14 +61,10 @@
 
       /* for devices of width less than 800px */
       @media screen and (max-width: 800px) {
-        body {
-          position: unset;
-          transform: translate(0, 0);
-          width: 100%;
-        }
-
         .main-container {
           grid-template-columns: auto;
+          position: initial;
+          transform: none;
         }
 
         button {
@@ -81,108 +79,110 @@
   </head>
   <body>
     <!-- container that contain all the boxes -->
-    <div class="main-container">
-      <!--row 1 column 1 buttons to change text style-->
-      <div class="box">
-        <div style="margin-bottom: 5px">
-          <!--bold button-->
-          <button onclick="boldFun(0)">Bold</button>
-          <!--italic button-->
-          <button onclick="italicFun(0)">Italic</button>
-          <!--underline button-->
-          <button onclick="underlineFun(0)">Underline</button>
+    <section>
+      <div class="main-container">
+        <!--row 1 column 1 buttons to change text style-->
+        <div class="box">
+          <div style="margin-bottom: 5px">
+            <!--bold button-->
+            <button onclick="boldFun(0)">Bold</button>
+            <!--italic button-->
+            <button onclick="italicFun(0)">Italic</button>
+            <!--underline button-->
+            <button onclick="underlineFun(0)">Underline</button>
+          </div>
+          <!-- font-size button-->
+          <div>
+            <input type="number" class="f-s" value="10" min="1" />
+            <button onclick="fontSizeFun(0)">Change-size</button>
+          </div>
+          <!--change color button-->
+          <div style="margin-top: 5px">
+            <input type="color" class="c-c" />
+            <button onclick="colorFun(0)">Change-color</button>
+          </div>
         </div>
-        <!-- font-size button-->
-        <div>
-          <input type="number" class="f-s" min="1" />
-          <button onclick="fontSizeFun(0)">Change-size</button>
+        <!--row 1 column 2 text-->
+        <div class="text box">
+          <p>He's not the sharpest knife in the drawer</p>
         </div>
-        <!--change color button-->
-        <div style="margin-top: 5px">
-          <input type="color" class="c-c" />
-          <button onclick="colorFun(0)">Change-color</button>
+        <!--row 2 column 1 buttons to change text style-->
+        <div class="box">
+          <div style="margin-bottom: 5px">
+            <!--bold button-->
+            <button onclick="boldFun(1)">Bold</button>
+            <!--italic button-->
+            <button onclick="italicFun(1)">Italic</button>
+            <!--underline button-->
+            <button onclick="underlineFun(1)">Underline</button>
+          </div>
+          <!-- font-size button-->
+          <div>
+            <input type="number" class="f-s" value="10" min="1" />
+            <button onclick="fontSizeFun(1)">Change-size</button>
+          </div>
+          <!--change color button-->
+          <div style="margin-top: 5px">
+            <input type="color" class="c-c" />
+            <button onclick="colorFun(1)">Change-color</button>
+          </div>
+        </div>
+        <!--row 2 column 2 text-->
+        <div class="text box">
+          <p>The big building was blazing with lights</p>
+        </div>
+        <!--row 3 column 1 buttons to change text style-->
+        <div class="box">
+          <div style="margin-bottom: 5px">
+            <!--bold button-->
+            <button onclick="boldFun(2)">Bold</button>
+            <!--italic button-->
+            <button onclick="italicFun(2)">Italic</button>
+            <!--underline button-->
+            <button onclick="underlineFun(2)">Underline</button>
+          </div>
+          <!-- font-size button-->
+          <div>
+            <input type="number" class="f-s" value="10" min="1" />
+            <button onclick="fontSizeFun(2)">Change-size</button>
+          </div>
+          <!--change color button-->
+          <div style="margin-top: 5px">
+            <input type="color" class="c-c" />
+            <button onclick="colorFun(2)">Change-color</button>
+          </div>
+        </div>
+        <!--row 3 column 2 text-->
+        <div class="text box">
+          <p>Now you must answer some big questions</p>
+        </div>
+        <!--row 4 column 1 buttons to change text style-->
+        <div class="box">
+          <div style="margin-bottom: 5px">
+            <!--bold button-->
+            <button onclick="boldFun(3)">Bold</button>
+            <!--italic button-->
+            <button onclick="italicFun(3)">Italic</button>
+            <!--underline button-->
+            <button onclick="underlineFun(3)">Underline</button>
+          </div>
+          <!-- font-size button-->
+          <div>
+            <input type="number" class="f-s" value="10" min="1" />
+            <button onclick="fontSizeFun(3)">Change-size</button>
+          </div>
+          <!--change color button-->
+          <div style="margin-top: 5px">
+            <input type="color" class="c-c" />
+            <button onclick="colorFun(3)">Change-color</button>
+          </div>
+        </div>
+        <!--row 4 column 2 text-->
+        <div class="text box">
+          <p>Get your act together!</p>
         </div>
       </div>
-      <!--row 1 column 2 text-->
-      <div class="text box">
-        <p>He's not the sharpest knife in the drawer</p>
-      </div>
-      <!--row 2 column 1 buttons to change text style-->
-      <div class="box">
-        <div style="margin-bottom: 5px">
-          <!--bold button-->
-          <button onclick="boldFun(1)">Bold</button>
-          <!--italic button-->
-          <button onclick="italicFun(1)">Italic</button>
-          <!--underline button-->
-          <button onclick="underlineFun(1)">Underline</button>
-        </div>
-        <!-- font-size button-->
-        <div>
-          <input type="number" class="f-s" min="1" />
-          <button onclick="fontSizeFun(1)">Change-size</button>
-        </div>
-        <!--change color button-->
-        <div style="margin-top: 5px">
-          <input type="color" class="c-c" />
-          <button onclick="colorFun(1)">Change-color</button>
-        </div>
-      </div>
-      <!--row 2 column 2 text-->
-      <div class="text box">
-        <p>The big building was blazing with lights</p>
-      </div>
-      <!--row 3 column 1 buttons to change text style-->
-      <div class="box">
-        <div style="margin-bottom: 5px">
-          <!--bold button-->
-          <button onclick="boldFun(2)">Bold</button>
-          <!--italic button-->
-          <button onclick="italicFun(2)">Italic</button>
-          <!--underline button-->
-          <button onclick="underlineFun(2)">Underline</button>
-        </div>
-        <!-- font-size button-->
-        <div>
-          <input type="number" class="f-s" min="1" />
-          <button onclick="fontSizeFun(2)">Change-size</button>
-        </div>
-        <!--change color button-->
-        <div style="margin-top: 5px">
-          <input type="color" class="c-c" />
-          <button onclick="colorFun(2)">Change-color</button>
-        </div>
-      </div>
-      <!--row 3 column 2 text-->
-      <div class="text box">
-        <p>Now you must answer some big questions</p>
-      </div>
-      <!--row 4 column 1 buttons to change text style-->
-      <div class="box">
-        <div style="margin-bottom: 5px">
-          <!--bold button-->
-          <button onclick="boldFun(3)">Bold</button>
-          <!--italic button-->
-          <button onclick="italicFun(3)">Italic</button>
-          <!--underline button-->
-          <button onclick="underlineFun(3)">Underline</button>
-        </div>
-        <!-- font-size button-->
-        <div>
-          <input type="number" class="f-s" min="1" />
-          <button onclick="fontSizeFun(3)">Change-size</button>
-        </div>
-        <!--change color button-->
-        <div style="margin-top: 5px">
-          <input type="color" class="c-c" />
-          <button onclick="colorFun(3)">Change-color</button>
-        </div>
-      </div>
-      <!--row 4 column 2 text-->
-      <div class="text box">
-        <p>Get your act together!</p>
-      </div>
-    </div>
+    </section>
 
     <!-- script for changing text style -->
     <script>
