@@ -9,6 +9,7 @@
         margin: 0px;
       }
 
+      /* center the container */
       body {
         display: flex;
         align-items: center;
@@ -17,13 +18,15 @@
       }
 
       section {
+        max-width: 100%;
         margin: auto;
       }
 
       /* grid of two columns and four rows */
       .main-container {
+        width: fit-content;
         display: grid;
-        grid-template-columns: 50% 50%;
+        grid-template-columns: 250px auto;
         border: 2px solid black;
         padding: 40px;
       }
