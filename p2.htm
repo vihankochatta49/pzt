@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>Zevi p2</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+
+      body {
+        font-family: sans-serif;
+      }
+
+      img {
+        width: 300px;
+        height: 300px;
+      }
+
+      /* styling nav-bar */
+      .nav-bar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: grey;
+        padding: 0px 45px;
+      }
+
+      /* styling search bar */
+      .search {
+        padding: 5px 15px;
+        background-color: white;
+        width: 600px;
+        border-radius: 8px;
+        border: 1px solid white;
+      }
+
+      .sb {
+        background-color: white;
+        border: 1px solid white;
+        width: 100%;
+        outline: none;
+        font-weight: 400;
+        font-size: 0.8rem;
+        color: #777;
+      }
+
+      /* for responsive search bar */
+      .search-res {
+        display: none;
+      }
+
+      .register {
+        display: flex;
+        align-items: center;
+      }
+
+      /* styling images container */
+      .images {
+        display: grid;
+        grid-template-columns: auto auto auto auto;
+        justify-content: center;
+        margin-top: 3px;
+      }
+
+      @media screen and (max-width: 640px) {
+        .nav-bar {
+          margin-bottom: 5px;
+          padding: 0px 5px;
+          max-width: 100%;
+        }
+
+        .search {
+          display: none !important;
+        }
+
+        .sb {
+          background-color: #fff;
+          border: 1px solid #fff;
+        }
+
+        .search-res {
+          display: flex;
+          margin: auto;
+          padding: 5px 5px;
+          background-color: #fff;
+          width: 90%;
+          border-radius: 8px;
+          border: 1px solid #004953;
+        }
+
+        .images {
+          grid-template-columns: auto auto;
+          margin-top: 5px;
+        }
+
+        img {
+          width: 150px;
+          height: 150px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- nav bar start from here -->
+    <nav class="nav-bar">
+      <!--title-->
+      <div>
+        <h1 style="font-size: 1.8rem; margin: 10px 0px; color: white">
+          My Gallary
+        </h1>
+      </div>
+      <form class="search">
+        <!--search bar-->
+        <input type="search" class="sb" placeholder="photos, people, groups" />
+      </form>
+      <!-- login sign-up options -->
+      <div class="register">
+        <h4 style="color: white; margin-right: 15px">Login</h4>
+        <h4 style="background-color: white; border-radius: 5px; padding: 5px">
+          Sign-up
+        </h4>
+      </div>
+    </nav>
+
+    <!--search bar for responsive-->
+    <form class="search-res">
+      <input type="search" class="sb" placeholder="photos, people, groups" />
+    </form>
+    <!-- nav bar ends -->
+
+    <!--container for images-->
+    <div class="images">
+      <div id="images0"></div>
+      <div id="images1"></div>
+      <div id="images2"></div>
+      <div id="images3"></div>
+      <div id="images4"></div>
+      <div id="images5"></div>
+      <div id="images6"></div>
+      <div id="images7"></div>
+      <div id="images8"></div>
+      <div id="images9"></div>
+      <div id="images10"></div>
+      <div id="images11"></div>
+    </div>
+
+    <!-- script for fetching images from flickrAPI -->
+    <script>
+      async function fetchAPI() {
+        for (var i = 0; i < 12; i++) {
+          var server_id, id, secret;
+
+          let resp = await fetch(
+            "https://www.flickr.com/services/rest/?method=flickr.galleries.getPhotos&api_key=1b30180f8db1d4d9b68af83091faaa0f&gallery_id=66911286-72157647277042064&format=json&nojsoncallback=1"
+          );
+          let data = await resp.json(); //getting data
+
+          server_id = data.photos.photo[i].server;
+          id = data.photos.photo[i].id;
+          secret = data.photos.photo[i].secret;
+
+          // image link
+          var link =
+            "https://live.staticflickr.com/" +
+            `${server_id}` +
+            "/" +
+            `${id}` +
+            "_" +
+            `${secret}` +
+            ".jpg";
+
+          const imge = `images${i}`;
+          document.getElementById(imge).innerHTML = `<img src = "${link}"/>`;
+        }
+      }
+      fetchAPI();
+    </script>
+  </body>
+</html>
